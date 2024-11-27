@@ -1,0 +1,136 @@
+<body>
+  <div class="background-circle circle1"></div>
+  <div class="background-circle circle2"></div>
+  <div class="background-circle circle3"></div>
+  <div class="background-circle circle4"></div>
+  <div class="background-circle circle5"></div>
+
+  <div class="container">
+
+    <div class="container__text-box container-top-text ">
+      <h1 class="h1-ac mb-0 container-top-text-1">All In One</h1>
+      <h2 class="h2-ac-lght mb-0 container-top-text-2">DeFi Platform</h2>
+      <p class="p-wh container-top-text-3">To swap, invest and earn with crypto at ease.</p>
+      <div class="container__button-start-now ">
+        <a class="container-bottom-link-box " href="/login-page">
+          <div class="container-top-link-1 gradient-background shadow-box-sm-2">
+            START NOW
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="container__trending trending-container">
+      <div class="trending-container__text-box">
+        <span class="trending-container__text">Trending</span>
+      </div>
+      <div class="container__trending-main-element">
+        <div *ngIf="trendingCoins.length > 0; else noData">
+          <div class="container__trending-list">
+            <div *ngFor="let coin of trendingCoins" class="container__trending-element shadow-box">
+              <div class="container__list-element-text-box">
+                <img class="coin-thumbnail" [src]="coin.ImagePath" [alt]="coin.Name" loading="lazy" />
+                <span class="list-element-text1">{{ coin.Name }}</span>
+                <span class="list-element-text2"
+                  [ngClass]="coin.PriceChange24H >= 0 ? 'color-text-green' : 'color-text-red'">
+                  {{ coin.PriceChange24H }}%
+                </span>
+              </div>
+              <div class="container__list-element-box">
+                <div class="list-box-element1">
+                  <span class="list-element-box-text1">${{ coin.Price.toFixed(2) }}</span>
+                  <app-trend-chart [trendData]="coin.trendData" [isPositive]="coin.PriceChange24H >= 0">
+                  </app-trend-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noData>
+          <p class="text-center">No data available</p>
+        </ng-template>
+      </div>
+    </div>
+
+
+    <div class="container__popular-markets">
+      <div class="popular-markets__text-box">
+        <span class="popular-markets__text">Popular Markets</span>
+      </div>
+      <div class="container__grid shadow-box">
+        <!-- Заголовки таблицы -->
+        <div class="grid-item">CRYPTOCURRENCIES</div>
+        <div class="grid-item">LAST PRICE</div>
+        <div class="grid-item">24H CHANGE</div>
+        <div class="grid-item">7D CHANGE</div>
+        <div class="grid-item">LAST 7 DAYS</div>
+
+        <!-- Динамическое наполнение таблицы -->
+        <ng-container *ngFor="let coin of coins">
+          <!-- Название криптовалюты и символ -->
+          <div class="grid-item">
+            <img class="coin-thumbnail" [src]="coin.ImagePath" [alt]="coin.Name" />
+            <div class="grid-item__coin-text coin-text-grid-item">
+              <span class="coin-text-grid-item__text1">{{ coin.Name }}</span>
+              <span class="coin-text-grid-item__text2 text-weight-14px">{{ coin.Symbol }}</span>
+            </div>
+          </div>
+
+          <!-- Последняя цена -->
+          <div class="grid-item text-weight-14px">${{ coin.Price }}</div>
+
+          <!-- Изменение за 24 часа -->
+          <div class="grid-item text-weight-14px"
+            [ngClass]="coin.PriceChange24H >= 0 ? 'color-text-green' : 'color-text-red'">
+            {{ coin.PriceChange24H }}%
+          </div>
+
+          <!-- Изменение за 7 дней -->
+          <div class="grid-item text-weight-14px"
+            [ngClass]="coin.PriceChange7D >= 0 ? 'color-text-green' : 'color-text-red'">
+            {{ coin.PriceChange7D }}%
+          </div>
+
+          <!-- График за последние 7 дней -->
+          <div class="grid-item">
+            <app-trend-chart [trendData]="coin.trendData" [isPositive]="coin.PriceChange7D >= 0" [showLabels]="false">
+            </app-trend-chart>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+
+    <div class="container__button-view-more ">
+      <a class="container-button-view-more " href="/token-info-page">
+        <div class="container-button-view-more-link-1 gradient-background shadow-box-sm-2">
+          <span>VIEW MORE</span>
+          <img src="../../../assets/img/arrow-to-the-right.svg" alt="img">
+        </div>
+      </a>
+    </div>
+
+    <div class="container__information-apps information-apps">
+      <div class="information-apps__list">
+        <div class="information-apps__element apps-element">
+          <span class="apps-element__text-1">750M+</span>
+          <span class="apps-element__text-2">Trading Volume</span>
+        </div>
+        <div class="information-apps__element apps-element">
+          <span class="apps-element__text-1">2M+</span>
+          <span class="apps-element__text-2">Total Users</span>
+        </div>
+        <div class="information-apps__element apps-element">
+          <span class="apps-element__text-1">50+</span>
+          <span class="apps-element__text-2">Blockchains</span>
+        </div>
+        <div class="information-apps__element apps-element">
+          <span class="apps-element__text-1">100+</span>
+          <span class="apps-element__text-2">Countries</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>

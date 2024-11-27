@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4087f423-def5-4d8e-967c-806ad6cd8819" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/arrow-to-the-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/coin1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/coin10.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/coin2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/coin3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/coin4.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/coin5.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/coin6.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/coin7.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/coin8.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/coin9.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/graph1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/graph10.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/graph2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/graph3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/graph4.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/graph5.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/graph6.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/graph7.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/graph8.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page-table/graph9.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page/coin1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page/coin2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page/coin3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page/coin4.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page/timetable1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page/timetable2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page/timetable3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Front/src/assets/img/home-page/timetable4.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/Front/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Front/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/src/styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Front/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Front/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Front" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2hRbndGheNz8btmStkqWxMdqz06" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.Angular Application.executor&quot;: &quot;Run&quot;,
+    &quot;Karma.signup-page.component.spec.ts.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.server.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.8.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.8.7&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ШАГ Программирование/Angular &amp; React/Пары и файлы/Angular/ItogProject/MetaCoin/src/assets/img&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\ШАГ Программирование\\3 курс 1ое полугодие\\NodeJs\\Итоговая\\MetaCoin\\Front\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ШАГ Программирование\Angular &amp; React\Пары и файлы\Angular\ItogProject\MetaCoin\src\assets\img" />
+      <recent name="D:\ШАГ Программирование\Angular &amp; React\Пары и файлы\Angular\ItogProject\MetaCoin\src\assets\img\icons" />
+      <recent name="D:\ШАГ Программирование\Angular &amp; React\Пары и файлы\Angular\ItogProject\MetaCoin\src\app\pages\markets-page" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ШАГ Программирование\3 курс 1ое полугодие\NodeJs\Итоговая\MetaCoin\Back\routes" />
+      <recent name="D:\ШАГ Программирование\Angular &amp; React\Пары и файлы\Angular\ItogProject\MetaCoin\src\assets\img" />
+      <recent name="D:\ШАГ Программирование\Angular &amp; React\Пары и файлы\Angular\ItogProject\MetaCoin\public" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.22855.79" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4087f423-def5-4d8e-967c-806ad6cd8819" name="Changes" comment="" />
+      <created>1717560005133</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717560005133</updated>
+      <workItem from="1717560006194" duration="8000" />
+      <workItem from="1717594417106" duration="21054000" />
+      <workItem from="1717678257550" duration="24907000" />
+      <workItem from="1717760459887" duration="48628000" />
+      <workItem from="1717843433027" duration="1280000" />
+      <workItem from="1717881786402" duration="12673000" />
+      <workItem from="1717928065748" duration="12734000" />
+      <workItem from="1717950312606" duration="37192000" />
+      <workItem from="1718046571104" duration="7314000" />
+      <workItem from="1718064492133" duration="6442000" />
+      <workItem from="1718144078284" duration="1237000" />
+      <workItem from="1718183102266" duration="3539000" />
+      <workItem from="1718282116162" duration="3669000" />
+      <workItem from="1718372507465" duration="1118000" />
+      <workItem from="1718401978982" duration="4414000" />
+      <workItem from="1718456093870" duration="388000" />
+      <workItem from="1719558663496" duration="2924000" />
+      <workItem from="1731882605893" duration="1695000" />
+      <workItem from="1731905198794" duration="23000" />
+      <workItem from="1731905228830" duration="21005000" />
+      <workItem from="1731955048124" duration="3702000" />
+      <workItem from="1732047792652" duration="12385000" />
+      <workItem from="1732091962676" duration="1380000" />
+      <workItem from="1732284427149" duration="184000" />
+      <workItem from="1732315538127" duration="618000" />
+      <workItem from="1732522543298" duration="10692000" />
+      <workItem from="1732549719631" duration="6907000" />
+      <workItem from="1732627198716" duration="13296000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

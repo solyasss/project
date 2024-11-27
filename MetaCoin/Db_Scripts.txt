@@ -1,0 +1,64 @@
+-- 1. Создание базы данных MetaCoin
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'MetaCoin')
+BEGIN
+    CREATE DATABASE MetaCoin;
+END;
+GO
+
+-- 2. Выбор базы данных MetaCoin
+USE MetaCoin;
+GO
+
+-- 3. Создание таблицы Coins
+IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Coins')
+BEGIN
+    CREATE TABLE Coins (
+        Id INT PRIMARY KEY IDENTITY(1,1), -- Автоматическая генерация идентификатора
+        Name NVARCHAR(50) NOT NULL,       -- Название монеты
+        Symbol NVARCHAR(10) NOT NULL,     -- Символ монеты
+        Price DECIMAL(18, 4) NOT NULL,    -- Цена монеты
+        PriceChange24H FLOAT NOT NULL,    -- Изменение цены за 24 часа
+        PriceChange7D FLOAT NOT NULL,     -- Изменение цены за 7 дней
+        ImagePath NVARCHAR(255) NULL      -- Путь к изображению монеты
+    );
+END;
+GO
+
+-- 4. Внесение начальных данных
+INSERT INTO Coins (Name, Symbol, Price, PriceChange24H, PriceChange7D, ImagePath)
+VALUES
+('Bitcoin', 'BTC', 87394.17, 1.48, 10.00, '../../../assets/img/Coin/Bitcoin.svg'),
+('Ethereum', 'ETH', 3313.27, 5.20, 30.37, '../../../assets/img/Coin/Ethereum.png'),
+('Tether', 'USDT', 1.00, 0.00, 0.00, '../../../assets/img/Coin/tether-usdt.png'),
+('Green Satoshi Token', 'GST', 2.89, -4.11, -10.00, '../../../assets/img/Coin/green-satoshi-token.png'),
+('STEPN', 'STPN', 1.42, -6.98, -15.00, '../../../assets/img/Coin/stepn-gmt.jpg'),
+('Terra', 'LUNA', 0.001, -11.93, -20.00, '../../../assets/img/Coin/Terra.png'),
+('PancakeSwap', 'CAKE', 7.18, 1.32, 5.00, '../../../assets/img/Coin/pancakeswap-cake.png');
+
+-- GO
+-- USE MetaCoin;
+-- GO
+-- DELETE FROM Coins;
+
+GO
+
+USE MetaCoin;
+
+--4 Создание таблицы Users
+CREATE TABLE Users (
+    Id INT PRIMARY KEY IDENTITY(1,1),       -- Уникальный идентификатор
+    Username NVARCHAR(50) NOT NULL,         -- Логин пользователя
+    DisplayName NVARCHAR(50) NOT NULL,      -- Отображаемое имя
+    Email NVARCHAR(255) NOT NULL UNIQUE,    -- Email (уникальный)
+    PasswordHash NVARCHAR(MAX) NOT NULL,    -- Хеш пароля
+    Role NVARCHAR(20) DEFAULT 'User',       -- Роль пользователя (Admin или User)
+    ReferralId NVARCHAR(50),                -- Реферальный ID (может быть NULL)
+    CreatedAt DATETIME DEFAULT GETDATE()    -- Дата создания записи
+);
+
+-- Добавление нескольких тестовых пользователей
+INSERT INTO Users (Username, DisplayName, Email, PasswordHash, Role, ReferralId)
+VALUES
+('admin', 'Administrator', 'admin@example.com', HASHBYTES('SHA2_256', 'password123'), 'Admin', NULL),
+('john_doe', 'John Doe', 'john@example.com', HASHBYTES('SHA2_256', 'password123'), 'User', NULL),
+('jane_doe', 'Jane Doe', 'jane@example.com', HASHBYTES('SHA2_256', 'password123'), 'User', 'john_doe');

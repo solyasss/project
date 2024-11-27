@@ -1,0 +1,594 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+body.dark-theme {
+  --background-color: #210B54;
+  --accent-light: #FEAFFE;
+  --accent: #E86EA0;
+  --text-color: #FFFFFF;
+  --header-bg: #0A052B;
+  --card-bg: #210B54;
+  --container-background-color-main: #210B54;
+  --scroll-bar: #8f88a8;
+  --adm-tabl-head: #E86EA0;
+  --adm-tabl: #4e2aa1;
+  --adm-tabl-even: #371c75;
+  --login-registr-input: #ffffff;
+}
+
+body.light-theme {
+  --background-color: #f6ffee;
+  --accent-light: #E86EA0;
+  --accent: #BA28FF;
+  --text-color: #4E5573;
+  --header-bg: #FEF6A5;
+  --card-bg: #FFFDFA;
+  --container-background-color-main: #f6ffee;
+  --scroll-bar: #210b54;
+  --adm-tabl-head: #ee6fff;
+  --adm-tabl: #ffe0aa;
+  --adm-tabl-even: #dab26e;
+  --login-registr-input: #000000;
+}
+
+:root {
+  --container-width-max: 1600px;
+}
+
+.container {
+  max-width: 1140px;
+}
+
+body {
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  max-width: var(--container-width-max) !important;
+  margin: 0 auto !important;
+}
+
+body.dark-theme :host .color-background-5 {
+  background: rgba(18, 2, 47, 0.5);
+}
+body.light-theme :host .color-background-5 {
+  background: rgba(243, 243, 243, 0.5);
+}
+body.dark-theme :host .color-background-8 {
+  background: rgba(33, 11, 84, 0.8);
+}
+body.light-theme :host .color-background-8 {
+  background: rgba(255, 255, 255, 0.8);
+}
+body.dark-theme :host .color-background-9 {
+  background: rgba(33, 11, 84, 0.9);
+}
+body.light-theme :host .color-background-9 {
+  background: rgba(255, 255, 255, 0.9);
+}
+body.dark-theme :host .color-background-10 {
+  background: #210b54;
+}
+body.light-theme :host .color-background-10 {
+  background: white;
+}
+body.dark-theme :host .gradient-background, body.dark-theme :host .gradient-background-static {
+  background: linear-gradient(78deg, #feaffe 0%, #e86ea0 100%);
+}
+body.light-theme :host .gradient-background, body.light-theme :host .gradient-background-static {
+  background: linear-gradient(78deg, #ba28ff 0%, #e86ea0 100%);
+}
+body.dark-theme :host .gradient-background:hover {
+  background: linear-gradient(78deg, #e86ea0 0%, #feaffe 100%);
+}
+body.light-theme :host .gradient-background:hover {
+  background: linear-gradient(78deg, #e86ea0 0%, #ba28ff 100%);
+}
+body.dark-theme :host .gradient-text, body.dark-theme :host .gradient-text-static {
+  background: linear-gradient(78deg, #e86ea0 0%, #feaffe 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body.light-theme :host .gradient-text, body.light-theme :host .gradient-text-static {
+  background: linear-gradient(78deg, #e86ea0 0%, #ba28ff 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body.dark-theme :host .gradient-text:hover {
+  background: linear-gradient(78deg, #feaffe 0%, #e86ea0 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body.light-theme :host .gradient-text:hover {
+  background: linear-gradient(78deg, #ba28ff 0%, #e86ea0 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body.dark-theme :host .circle1, body.dark-theme :host .circle3, body.dark-theme :host .circle5, body.dark-theme :host .login-page__circle1, body.dark-theme :host .sing-up-page__circle1 {
+  background-color: #FEAFFE;
+}
+body.dark-theme :host .circle2, body.dark-theme :host .circle4, body.dark-theme :host .login-page__circle2, body.dark-theme :host .sing-up-page__circle2 {
+  background-color: #B7AFFE;
+}
+body.light-theme :host .circle1, body.light-theme :host .circle3, body.light-theme :host .circle5, body.light-theme :host .login-page__circle1, body.light-theme :host .sing-up-page__circle1 {
+  background-color: #FEF6A5;
+}
+body.light-theme :host .circle2, body.light-theme :host .circle4, body.light-theme :host .login-page__circle2, body.light-theme :host .sing-up-page__circle2 {
+  background-color: #B7AFFE;
+}
+
+.shadow-box {
+  padding: 0 5px;
+  -webkit-box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  height: 100%;
+}
+
+.shadow-box-sm-1 {
+  padding: 0 2px;
+  -webkit-box-shadow: 2px 4px 4px -2px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 4px 4px -2px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  height: 100%;
+}
+
+.shadow-box-sm-2 {
+  padding: 0 2px;
+  -webkit-box-shadow: 2px 4px 4px -2px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 4px 4px -2px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  height: 100%;
+}
+
+.shadow-box-n-p {
+  -webkit-box-shadow: 2px 4px 4px -2px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 4px 4px -2px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+/* Общий стиль для всех скроллбаров на странице */
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  /* Для горизонтального скроллбара */
+}
+
+/* Стиль трека скроллбара */
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Цвет трека */
+  border-radius: 10px;
+  /* Закругленные углы */
+}
+
+/* Стиль ползунка скроллбара */
+*::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+  /* Цвет ползунка */
+  border-radius: 10px;
+  /* Закругленные углы */
+}
+
+/* Ползунок при наведении */
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-bar);
+  /* Цвет ползунка при наведении */
+}
+
+/* Применение стиля к определенным контейнерам */
+.token-list::-webkit-scrollbar,
+.container__table-coin::-webkit-scrollbar {
+  width: 12px;
+}
+
+.token-list::-webkit-scrollbar-track,
+.container__table-coin::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.token-list::-webkit-scrollbar-thumb,
+.container__table-coin::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+  border-radius: 10px;
+}
+
+.token-list::-webkit-scrollbar-thumb:hover,
+.container__table-coin::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-bar);
+}
+
+.coins-management {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1000px;
+  background-color: var(--adm-tabl);
+  border-radius: 12px;
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 1060px) {
+  .coins-management {
+    overflow: auto;
+  }
+}
+.coins-management button {
+  border: none;
+}
+.coins-management h2 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+.coins-management .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.coins-management .actions .action-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: #cc5dff;
+  color: white;
+}
+.coins-management .actions .action-btn:hover {
+  background-color: #a41cff;
+}
+.coins-management .actions .action-btn:active {
+  background-color: hsl(276, 100%, 79%);
+}
+.coins-management table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.coins-management table thead {
+  background-color: var(--adm-tabl-head);
+  color: white;
+}
+.coins-management table thead tr th {
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  font-family: "Inter", sans-serif;
+}
+.coins-management table thead tr th:nth-child(5) {
+  width: 15%;
+}
+.coins-management table thead tr th:nth-child(6) {
+  width: 13%;
+}
+.coins-management table thead tr th:last-child {
+  width: 1%;
+}
+.coins-management table tbody tr {
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.coins-management table tbody tr:nth-child(even) {
+  background-color: var(--adm-tabl-even);
+}
+.coins-management table tbody tr:hover {
+  background-color: rgba(238, 108, 255, 0.5333333333);
+}
+.coins-management table tbody tr td {
+  padding: 12px 15px;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  font-family: "Inter", sans-serif;
+}
+.coins-management table tbody tr td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+}
+.coins-management table th,
+.coins-management table td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.coins-management .action-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+.coins-management .action-buttons .update-btn,
+.coins-management .action-buttons .delete-btn {
+  margin-left: 10px;
+  padding: 12px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: #cc5dff;
+  color: white;
+}
+.coins-management .action-buttons .update-btn:hover,
+.coins-management .action-buttons .delete-btn:hover {
+  background-color: #a41cff;
+}
+.coins-management .action-buttons .update-btn:active,
+.coins-management .action-buttons .delete-btn:active {
+  background-color: #d494ff;
+}
+
+.add-coin-form {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--adm-tabl);
+  border-radius: 12px;
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+  min-width: 380px;
+}
+.add-coin-form .form-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+@media (max-width: 1040px) {
+  .add-coin-form .form-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 790px) {
+  .add-coin-form .form-fields {
+    grid-template-columns: 1fr;
+  }
+}
+.add-coin-form .form-fields label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.add-coin-form .form-fields label input {
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background-color: var(--adm-tabl-even);
+  color: var(--text-color);
+  -webkit-transition: border 0.3s ease;
+  transition: border 0.3s ease;
+}
+.add-coin-form .form-fields label input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.add-coin-form .form-fields label input::-webkit-input-placeholder {
+  color: var(--text-color);
+}
+.add-coin-form .form-fields label input::-moz-placeholder {
+  color: var(--text-color);
+}
+.add-coin-form .form-fields label input:-ms-input-placeholder {
+  color: var(--text-color);
+}
+.add-coin-form .form-fields label input::-ms-input-placeholder {
+  color: var(--text-color);
+}
+.add-coin-form .form-fields label input::placeholder {
+  color: var(--text-color);
+}
+.add-coin-form .status-message {
+  margin-bottom: 15px;
+}
+.add-coin-form .status-message p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 8px;
+}
+.add-coin-form .status-message p.success {
+  color: #2d9c23;
+  background-color: #d7f4d5;
+}
+.add-coin-form .status-message p.error {
+  color: #d13135;
+  background-color: #fdd9d9;
+}
+.add-coin-form .form-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 10px;
+}
+.add-coin-form .form-actions .save-btn,
+.add-coin-form .form-actions .cancel-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.add-coin-form .form-actions .save-btn.save-btn,
+.add-coin-form .form-actions .cancel-btn.save-btn {
+  background-color: #cc5dff;
+  color: white;
+}
+.add-coin-form .form-actions .save-btn.save-btn:hover,
+.add-coin-form .form-actions .cancel-btn.save-btn:hover {
+  background-color: #a41cff;
+}
+.add-coin-form .form-actions .save-btn.save-btn:active,
+.add-coin-form .form-actions .cancel-btn.save-btn:active {
+  background-color: hsl(276, 100%, 79%);
+}
+.add-coin-form .form-actions .save-btn.cancel-btn,
+.add-coin-form .form-actions .cancel-btn.cancel-btn {
+  background-color: #d6d6d6;
+  color: #333;
+}
+.add-coin-form .form-actions .save-btn.cancel-btn:hover,
+.add-coin-form .form-actions .cancel-btn.cancel-btn:hover {
+  background-color: #bbbbbb;
+}
+.add-coin-form .form-actions .save-btn.cancel-btn:active,
+.add-coin-form .form-actions .cancel-btn.cancel-btn:active {
+  background-color: #999999;
+}
+
+input.error {
+  border: 1px solid #d13135;
+}
+
+small.error-text {
+  color: #d13135;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  display: block;
+}
+
+.status-message {
+  margin: 10px 0;
+  text-align: center;
+}
+.status-message p {
+  font-size: 0.9rem;
+  padding: 10px;
+  border-radius: 8px;
+}
+.status-message p.success {
+  color: #2d9c23;
+  background-color: #d7f4d5;
+}
+.status-message p.error {
+  color: #d13135;
+  background-color: #fdd9d9;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: 400px;
+  max-height: 180px;
+  width: 90%;
+  border: 2px solid red;
+  display: block !important;
+  visibility: visible !important;
+  margin: 0 auto;
+}
+
+.modal p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+
+.confirm-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.confirm-btn {
+  background-color: #cc5dff;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #a41cff;
+}
+
+.cancel-btn {
+  background-color: #d6d6d6;
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background-color: #bbbbbb;
+}
+
+.table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  /* Горизонтальная прокрутка */
+  overflow-y: auto;
+  /* Вертикальная прокрутка */
+  /* Ограничиваем высоту таблицы */
+}
+.table-wrapper input {
+  width: 80px;
+}

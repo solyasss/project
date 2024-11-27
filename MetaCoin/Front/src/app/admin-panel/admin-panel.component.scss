@@ -1,0 +1,46 @@
+@import '../../styles/styles.scss';
+
+.admin-panel-container {
+  padding: 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+  font-family: $font-family-roboto;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    a {
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+      background-color: #cc5dff;
+      color: white;
+      text-align: center;
+
+      &:hover {
+        background-color: #a41cff;
+      }
+
+      &:active {
+        background-color: #d494ff;
+      }
+    }
+  }
+}

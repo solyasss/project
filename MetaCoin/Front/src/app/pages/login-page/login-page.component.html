@@ -1,0 +1,139 @@
+<div class="container-fluid">
+  <div class="login-page-container">
+
+    <div class="login-page" [ngClass]="{'show': isLoginPage, 'hide': !isLoginPage}">
+      <div class="login-page__text-meta">Meta</div>
+      <div class="login-page__text-coin">coin</div>
+      <div class="login-page__circle1"></div>
+      <div class="login-page__circle2"></div>
+
+      <div class="login-page__links">
+        <a class="login-page__login gradient-text" (click)="showLoginPage()">Login</a>
+        <a class="login-page__sing-up" (click)="showSignUpPage()">Sign Up</a>
+      </div>
+
+      <div class="login-page__form form-login-page">
+        <form (ngSubmit)="login(loginEmail, loginPassword)">
+          <label for="email1" class="form-login-page__label-email">Email</label>
+          <input
+            class="form-login-page__input-email"
+            type="email"
+            id="email1"
+            required
+            [(ngModel)]="loginEmail"
+            name="email"
+            placeholder="Email"
+          />
+
+          <label for="password1" class="form-login-page__label-password">Password</label>
+          <input
+            class="form-login-page__input-password"
+            type="password"
+            id="password1"
+            minlength="6"
+            required
+            [(ngModel)]="loginPassword"
+            name="password"
+            placeholder="Password"
+          />
+
+          <button class="form-login-page__button-submit gradient-background" type="submit">
+            Login
+          </button>
+        </form>
+      </div>
+
+      <div class="message-box" *ngIf="message">
+        <p [ngClass]="{ 'error-message': isError, 'success-message': !isError }">
+          {{ message }}
+        </p>
+      </div>
+    </div>
+
+    <div class="sing-up-page" [ngClass]="{'show': !isLoginPage, 'hide': isLoginPage}">
+      <div class="sing-up-page__text-meta">Meta</div>
+      <div class="sing-up-page__text-coin">coin</div>
+      <div class="sing-up-page__circle1"></div>
+      <div class="sing-up-page__circle2"></div>
+
+      <div class="sing-up-page__links">
+        <a class="login-page__login" (click)="showLoginPage()">Login</a>
+        <a class="login-page__sing-up gradient-text" (click)="showSignUpPage()">Sign Up</a>
+      </div>
+
+      <div class="sing-up-page__form form-sing-up-page">
+        <form (ngSubmit)="register()">
+          <label for="referral-id" class="form-sing-up-page__label-referral-id">Referral ID</label>
+          <input
+            class="form-sing-up-page__input-referral-id"
+            type="text"
+            id="referral-id"
+            [(ngModel)]="referralId"
+            name="referralId"
+            placeholder="Referral ID"
+          />
+
+          <label for="username" class="form-sing-up-page__label-username">Username</label>
+          <input
+            class="form-sing-up-page__input-username"
+            type="text"
+            id="username"
+            [(ngModel)]="username"
+            name="username"
+            required
+            placeholder="Username"
+          />
+
+          <label for="email2" class="form-sing-up-page__label-email">Email</label>
+          <input
+            class="form-sing-up-page__input-email"
+            type="email"
+            id="email2"
+            [(ngModel)]="signupEmail"
+            name="email"
+            required
+            placeholder="Email"
+          />
+
+          <label for="password2" class="form-sing-up-page__label-password">Password</label>
+          <input
+            class="form-sing-up-page__input-password"
+            type="password"
+            id="password2"
+            [(ngModel)]="signupPassword"
+            name="password"
+            minlength="6"
+            required
+            placeholder="Password"
+          />
+          <div class="error-message" *ngIf="signupPassword && signupPassword.length < 6">
+            Password must be at least 6 characters long.
+          </div>
+
+
+          <label for="confirm-password" class="form-sing-up-page__label-confirm-password">Confirm Password</label>
+          <input
+            class="form-sing-up-page__input-confirm-password"
+            type="password"
+            id="confirm-password"
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
+            minlength="6"
+            required
+            placeholder="Confirm Password"
+          />
+
+          <button class="form-login-page__button-submit gradient-background" type="submit">
+            Sign Up
+          </button>
+        </form>
+      </div>
+
+      <div class="message-box" *ngIf="message">
+        <p [ngClass]="{'error-message': isError, 'success-message': !isError}">
+          {{ message }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

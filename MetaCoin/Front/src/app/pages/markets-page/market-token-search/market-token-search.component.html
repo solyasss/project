@@ -1,0 +1,6 @@
+<div class="token-container h-100 mb-2">
+  <app-search-box (searchChange)="searchQuery = $event; filterTokens()"></app-search-box>
+  <div class="mt-4">
+    <app-token-list [tokens]="filteredTokens"></app-token-list>
+  </div>
+</div>

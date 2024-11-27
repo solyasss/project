@@ -1,0 +1,26 @@
+<div class="container__trending trending-container">
+  <div class="trending-container__text-box">
+  </div>
+  <div class="container__trending-main-element">
+    <div *ngIf="coin; else noData">
+      <div class="container__trending-list">
+        <div class="container__trending-element shadow-box">
+          <div class="container__list-element-box">
+            <div class="list-box-element1">
+              <div class="trend-chart-wrapper">
+                <app-trend-chart
+                  [trendData]="coin.trendData"
+                  [isPositive]="coin.PriceChange24H >= 0"
+                  [showLabels]="false">
+                </app-trend-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noData>
+      <p class="text-center">No data available</p>
+    </ng-template>
+  </div>
+</div>

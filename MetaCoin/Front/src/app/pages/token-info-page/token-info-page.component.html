@@ -1,0 +1,148 @@
+<body>
+<div class="background-circle circle1"></div>
+<div class="background-circle circle2"></div>
+
+<div class="container inter">
+  <div class="container__inform-four-elem">
+    <div class="container__list">
+      <div *ngFor="let coin of randomCoins" class="container__element container-element">
+        <div class="container-element__box-1 box-1-element">
+          <div class="box-1-element__1">
+          <span class="box-1-element__part-1 box-1-element-part">
+            <img
+              class="box-1-element-part__1"
+              [src]="coin.ImagePath"
+              [alt]="coin.Name"
+              loading="lazy"
+            />
+            <span class="box-1-element-part__2">{{ coin.Symbol }}</span>
+          </span>
+            <span class="box-1-element__part-2">${{ coin.Price.toFixed(2) }}</span>
+            <span class="box-1-element__part-3">LIQUIDITY</span>
+            <span class="box-1-element__part-4">{{ coin.Liquidity }}</span>
+            <span
+              class="box-1-element__part-5"
+              [ngClass]="coin.PriceChange7D >= 0 ? 'color-text-green' : 'color-text-red'"
+            >
+            {{ coin.PriceChange7D }}%
+          </span>
+          </div>
+        </div>
+        <div class="container-element__box-2 box-2-element">
+          <div class="box-2-element__1">
+            <app-trend-chart
+              [trendData]="coin.trendData"
+              [isPositive]="coin.PriceChange7D >= 0"
+              [showLabels]="false"
+            ></app-trend-chart>
+          </div>
+          <div class="box-2-element__2">
+            <span class="box-2-element__part-1">VOLUME</span>
+            <span class="box-2-element__part-2">{{ coin.Volume }}</span>
+            <span
+              class="box-2-element__part-3"
+              [ngClass]="coin.PriceChange24H >= 0 ? 'color-text-green' : 'color-text-red'"
+            >
+            {{ coin.PriceChange24H }}%
+          </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container__input-box container-input-box">
+    <div class="search-box p-1 mb-1 rounded-5">
+      <div class="input-container">
+        <input
+          type="text"
+          class="form-control border-0 rounded-5 placeholder-text"
+          placeholder="Search"
+          [(ngModel)]="searchQuery"
+          (input)="filterCoins()"
+        />
+        <svg
+          class="input-icon"
+          width="22"
+          height="22"
+          viewBox="0 0 22 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21 21L16.2779 16.2695L21 21ZM18.8947 9.94737C18.8947 12.3204 17.9521 14.5962 16.2741 16.2741C14.5962 17.9521 12.3204 18.8947 9.94737 18.8947C7.57438 18.8947 5.29858 17.9521 3.62062 16.2741C1.94267 14.5962 1 12.3204 1 9.94737C1 7.57438 1.94267 5.29858 3.62062 3.62062C5.29858 1.94267 7.57438 1 9.94737 1C12.3204 1 14.5962 1.94267 16.2741 3.62062C17.9521 5.29858 18.8947 7.57438 18.8947 9.94737V9.94737Z"
+            stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container__table-coin">
+    <div class="container__color-first-row"></div>
+    <div class="container__grid">
+      <!-- Заголовки столбцов -->
+      <div class="grid-header">
+        <span class="grid-header__item">TOKEN NAME</span>
+        <span class="grid-header__item">ADDRESS</span>
+        <span class="grid-header__item">PRICE</span>
+        <span class="grid-header__item">VALUE</span>
+        <span class="grid-header__item">BALANCE</span>
+        <span class="grid-header__item">LIQUIDITY</span>
+        <span class="grid-header__item">VOLUME (24H)</span>
+        <span class="grid-header__item">TRANSACTIONS</span>
+      </div>
+
+      <!-- Список монет -->
+      <div *ngFor="let coin of filteredCoins" class="grid-row">
+        <!-- Сердце и токен -->
+        <div class="grid-item">
+          <img
+            class="grid-item-img-heart"
+            [src]="coin.IsFavorite ? '../../../assets/img/token-info-page/beating-heart.svg' : '../../../assets/img/token-info-page/empty-heart-black.svg'"
+            alt="Heart"
+          />
+          <img class="grid-item-img-coin" [src]="coin.ImagePath" [alt]="coin.Name"/>
+          <div class="grid-item-box-text">
+            <span class="grid-item-box-text__1">{{ coin.Symbol }}</span>
+            <span class="grid-item-box-text__2">{{ coin.Name }}</span>
+          </div>
+        </div>
+
+        <!-- Адрес -->
+        <div class="grid-item">
+          <span>{{ formatAddress(coin.Address) }}</span>
+          <a href="#">
+            <img src="../../../assets/img/token-info-page/folder.svg" alt="Explorer"/>
+          </a>
+        </div>
+
+        <!-- Цена -->
+        <div class="grid-item">${{ coin.Price.toFixed(2) }}</div>
+
+        <!-- Значение -->
+        <div class="grid-item">{{ (coin.Price * coin.Balance).toFixed(2) }}</div>
+
+        <!-- Баланс -->
+        <div class="grid-item">{{ coin.Balance.toFixed(4) }}</div>
+
+        <!-- Ликвидность -->
+        <div class="grid-item" [ngClass]="getClassBasedOnValue(coin.Liquidity)">
+          {{ coin.Liquidity | number: '1.2-2' }}%
+        </div>
+
+        <!-- Объем -->
+        <div class="grid-item" [ngClass]="getClassBasedOnValue(parseFloat(coin.Volume))">
+          {{ coin.Volume }}%
+        </div>
+
+        <!-- Транзакции -->
+        <div class="grid-item" [ngClass]="getClassBasedOnValue(coin.Transactions)">
+          {{ coin.Transactions | number: '1.2-2' }}%
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>

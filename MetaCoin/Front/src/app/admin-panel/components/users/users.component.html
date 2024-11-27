@@ -1,0 +1,152 @@
+<div class="users-management">
+  <h2>Manage Users</h2>
+
+  <!-- Кнопки управления -->
+  <div class="actions" *ngIf="!isAdding">
+    <button type="button" class="action-btn add-btn" (click)="toggleAddMode()">Add</button>
+    <button type="button" class="action-btn delete-btn" (click)="confirmDeleteAll()">Delete All</button>
+  </div>
+
+  <!-- Модальное окно для подтверждения удаления -->
+  <div class="modal-overlay" *ngIf="isConfirmingDelete">
+    <div class="modal">
+      <p>Are you sure you want to delete all users? This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button type="button" class="confirm-btn" (click)="deleteAllUsers()">Yes</button>
+        <button type="button" class="cancel-btn" (click)="cancelDeleteAll()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Сообщение об успехе или ошибке -->
+  <div class="status-message" *ngIf="message">
+    <p [class.success]="isSuccess" [class.error]="!isSuccess">{{ message }}</p>
+  </div>
+
+  <!-- Форма добавления пользователя -->
+  <div class="add-user-form" *ngIf="isAdding">
+    <div class="form-fields">
+      <label>
+        Username:
+        <input
+          type="text"
+          [(ngModel)]="newUser.Username"
+          placeholder="Enter username"
+          [class.error]="!newUser.Username && message"
+        />
+        <small *ngIf="!newUser.Username && message" class="error-text">Username is required</small>
+      </label>
+      <label>
+        Display Name:
+        <input
+          type="text"
+          [(ngModel)]="newUser.DisplayName"
+          placeholder="Enter display name"
+          [class.error]="!newUser.DisplayName && message"
+        />
+        <small *ngIf="!newUser.DisplayName && message" class="error-text">Display name is required</small>
+      </label>
+      <label>
+        Email:
+        <input
+          type="email"
+          [(ngModel)]="newUser.Email"
+          placeholder="Enter email"
+          [class.error]="!newUser.Email && message"
+        />
+        <small *ngIf="!newUser.Email && message" class="error-text">Email is required</small>
+      </label>
+      <label>
+        Password:
+        <input
+          type="password"
+          [(ngModel)]="newUser.Password"
+          placeholder="Enter password"
+          [class.error]="!newUser.Password && message"
+        />
+        <small *ngIf="!newUser.Password && message" class="error-text">Password is required</small>
+      </label>
+      <label>
+        Referral ID:
+        <input
+          type="text"
+          [(ngModel)]="newUser.ReferralId"
+          placeholder="Enter referral ID (optional)"
+        />
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="save-btn" (click)="saveUser()">Save</button>
+      <button type="button" class="cancel-btn" (click)="toggleAddMode()">Cancel</button>
+    </div>
+  </div>
+
+
+  <!-- Таблица пользователей -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Referral ID</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>
+          <input
+            *ngIf="editIndex === i"
+            type="text"
+            [(ngModel)]="user.Username"
+          />
+          <span *ngIf="editIndex !== i">{{ user.Username }}</span>
+        </td>
+        <td>
+          <input
+            *ngIf="editIndex === i"
+            type="email"
+            [(ngModel)]="user.Email"
+          />
+          <span *ngIf="editIndex !== i">{{ user.Email }}</span>
+        </td>
+        <td>{{ user.Role }}</td>
+        <td>{{ user.ReferralId || 'N/A' }}</td>
+        <td class="action-buttons">
+          <button
+            *ngIf="editIndex !== i"
+            (click)="startEdit(i)"
+            class="update-btn"
+          >
+            Update
+          </button>
+          <button
+            *ngIf="editIndex !== i"
+            (click)="deleteUser(user.Id)"
+            class="delete-btn"
+          >
+            Delete
+          </button>
+          <button
+            *ngIf="editIndex === i"
+            (click)="saveEdit(user)"
+            class="update-btn"
+          >
+            Save
+          </button>
+          <button
+            *ngIf="editIndex === i"
+            (click)="cancelEdit()"
+            class="delete-btn"
+          >
+            Cancel
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

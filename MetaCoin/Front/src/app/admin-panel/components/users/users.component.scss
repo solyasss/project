@@ -1,0 +1,336 @@
+@import '../../../../styles/styles.scss';
+
+.users-management {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1000px;
+  background-color: var(--adm-tabl);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1060px) {
+    overflow: auto;
+  }
+
+  button {
+    border: none;
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: $font-family-roboto;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    .action-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: #cc5dff;
+      color: white;
+
+      &:hover {
+        background-color: #a41cff;
+      }
+
+      &:active {
+        background-color: hsl(276, 100%, 79%);
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+
+    thead {
+      background-color: var(--adm-tabl-head);
+      color: white;
+
+      tr {
+        th {
+          padding: 15px;
+          font-size: 1rem;
+          font-weight: 600;
+          text-align: left;
+          font-family: $font-family-inter;
+
+          &:last-child {
+            width: 1%;
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background-color: var(--adm-tabl-even);
+        }
+
+        &:hover {
+          background-color: #ee6cff88;
+        }
+
+        transition: background-color 0.3s ease;
+
+        td {
+          padding: 12px 15px;
+          color: var(--text-color);
+          font-size: 0.95rem;
+          font-family: $font-family-inter;
+
+          &:first-child {
+            font-weight: 600;
+            color: var(--accent);
+          }
+        }
+      }
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    .update-btn,
+    .delete-btn {
+      margin-left: 10px;
+      padding: 12px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: #cc5dff;
+      color: white;
+
+      &:hover {
+        background-color: #a41cff;
+      }
+
+      &:active {
+        background-color: #d494ff;
+      }
+    }
+  }
+}
+
+// Форма добавления пользователей
+.add-user-form {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--adm-tabl);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+  min-width: 380px;
+
+  .form-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @media (max-width: 1040px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 790px) {
+      grid-template-columns: 1fr;
+    }
+
+    gap: 15px;
+    margin-bottom: 20px;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.95rem;
+      font-weight: 600;
+
+      input {
+        margin-top: 5px;
+        padding: 10px;
+        font-size: 0.9rem;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        background-color: var(--adm-tabl-even);
+        color: var(--text-color);
+        transition: border 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: var(--accent);
+        }
+
+        &::placeholder {
+          color: var(--text-color);
+        }
+      }
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    .save-btn,
+    .cancel-btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.save-btn {
+        background-color: #cc5dff;
+        color: white;
+
+        &:hover {
+          background-color: #a41cff;
+        }
+
+        &:active {
+          background-color: hsl(276, 100%, 79%);
+        }
+      }
+
+      &.cancel-btn {
+        background-color: #d6d6d6;
+        color: #333;
+
+        &:hover {
+          background-color: #bbbbbb;
+        }
+
+        &:active {
+          background-color: #999999;
+        }
+      }
+    }
+  }
+}
+
+input.error {
+  border: 1px solid #d13135;
+}
+
+small.error-text {
+  color: #d13135;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  display: block;
+}
+
+.status-message {
+  margin: 10px 0;
+  text-align: center;
+
+  p {
+    font-size: 0.9rem;
+    padding: 10px;
+    border-radius: 8px;
+
+    &.success {
+      color: #2d9c23;
+      background-color: #d7f4d5;
+    }
+
+    &.error {
+      color: #d13135;
+      background-color: #fdd9d9;
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  max-height: 180px;
+  width: 90%;
+  border: 2px solid red;
+  display: block !important;
+  visibility: visible !important;
+  margin: 0 auto;
+}
+
+.modal p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #333 !important;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.confirm-btn {
+  background-color: #cc5dff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.confirm-btn:hover {
+  background-color: #a41cff;
+}
+
+.cancel-btn {
+  background-color: #d6d6d6;
+  color: #333;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cancel-btn:hover {
+  background-color: #bbbbbb;
+}

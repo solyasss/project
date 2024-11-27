@@ -1,0 +1,142 @@
+<div class="coins-management">
+  <h2>Manage Coins</h2>
+
+  <!-- Кнопка для добавления коина -->
+  <div class="actions" *ngIf="!isAdding">
+    <button type="button" class="action-btn add-btn" (click)="toggleAddMode()">Add</button>
+    <button type="button" class="action-btn delete-btn" (click)="confirmDeleteAll()">Delete All</button>
+  </div>
+
+  <!-- Модальное окно для подтверждения удаления -->
+  <div class="modal-overlay" *ngIf="isConfirmingDelete">
+    <div class="modal">
+      <p>Are you sure you want to delete all coins? This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button type="button" class="confirm-btn" (click)="deleteAllCoins()">Yes</button>
+        <button type="button" class="cancel-btn" (click)="cancelDeleteAll()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="status-message" *ngIf="message">
+    <p [class.success]="isSuccess" [class.error]="!isSuccess">{{ message }}</p>
+  </div>
+
+
+
+  <!-- Форма добавления коина -->
+  <div class="add-coin-form" *ngIf="isAdding">
+    <div class="form-fields">
+      <label>
+        Name:
+        <input type="text" [(ngModel)]="newCoin.Name" placeholder="Enter name"
+          [class.error]="!newCoin.Name && message" />
+        <small *ngIf="!newCoin.Name && message" class="error-text">Name is required</small>
+      </label>
+      <label>
+        Symbol:
+        <input type="text" [(ngModel)]="newCoin.Symbol" placeholder="Enter symbol"
+          [class.error]="!newCoin.Symbol && message" />
+        <small *ngIf="!newCoin.Symbol && message" class="error-text">Symbol is required</small>
+      </label>
+      <label>
+        Price:
+        <input type="number" [(ngModel)]="newCoin.Price" placeholder="Enter price"
+          [class.error]="!newCoin.Price && message" />
+        <small *ngIf="!newCoin.Price && message" class="error-text">Price is required</small>
+      </label>
+      <label>
+        24H Change (%):
+        <input type="number" [(ngModel)]="newCoin.PriceChange24H" placeholder="24h change" />
+      </label>
+      <label>
+        7D Change (%):
+        <input type="number" [(ngModel)]="newCoin.PriceChange7D" placeholder="7d change" />
+      </label>
+      <label>
+        Image:
+        <input type="file" (change)="handleFileInput($event)" [class.error]="!selectedFile && message" />
+        <small *ngIf="!selectedFile && message" class="error-text">Image is required</small>
+      </label>
+    </div>
+
+
+    <!-- Сообщение об успехе или ошибке -->
+    <div class="status-message" *ngIf="message">
+      <p [class.success]="isSuccess" [class.error]="!isSuccess">{{ message }}</p>
+    </div>
+
+
+    <!-- Кнопки управления -->
+    <div class="form-actions">
+      <button type="button" class="save-btn" (click)="saveCoin()">Save</button>
+      <button type="button" class="cancel-btn" (click)="toggleAddMode()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Таблица коинов -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Symbol</th>
+          <th>Price</th>
+          <th>Image Path</th>
+          <th>24H Change</th>
+          <th>7D Change</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let coin of coins; let i = index">
+          <td>
+            <input *ngIf="editIndex === i" type="text" [(ngModel)]="coin.Name" />
+            <span *ngIf="editIndex !== i">{{ coin.Name }}</span>
+          </td>
+          <td>
+            <input *ngIf="editIndex === i" type="text" [(ngModel)]="coin.Symbol" />
+            <span *ngIf="editIndex !== i">{{ coin.Symbol }}</span>
+          </td>
+          <td>
+            <input *ngIf="editIndex === i" type="number" [(ngModel)]="coin.Price" />
+            <span *ngIf="editIndex !== i">{{ coin.Price }}</span>
+          </td>
+          <!-- <td>
+            <div *ngIf="editIndex !== i">{{ coin.ImagePath }}</div>
+            <input *ngIf="editIndex === i" type="file" (change)="handleEditFileInput($event)" />
+          </td> -->
+          <td>
+            <div *ngIf="editIndex !== i">{{ getCoinImagePath(coin) }}</div>
+            <input *ngIf="editIndex === i" type="file" (change)="handleEditFileInput($event)" />
+          </td>
+          <td>
+            <input *ngIf="editIndex === i" type="number" [(ngModel)]="coin.PriceChange24H" />
+            <span *ngIf="editIndex !== i">{{ coin.PriceChange24H }}%</span>
+          </td>
+          <td>
+            <input *ngIf="editIndex === i" type="number" [(ngModel)]="coin.PriceChange7D" />
+            <span *ngIf="editIndex !== i">{{ coin.PriceChange7D }}%</span>
+          </td>
+          <td class="action-buttons">
+            <button *ngIf="editIndex !== i" (click)="startEdit(i)" class="update-btn">
+              Update
+            </button>
+            <button *ngIf="editIndex !== i" (click)="deleteCoin(coin.Id)" class="delete-btn">
+              Delete
+            </button>
+            <button *ngIf="editIndex === i" (click)="saveEdit(coin)" class="update-btn">
+              Save
+            </button>
+            <button *ngIf="editIndex === i" (click)="cancelEdit()" class="delete-btn">
+              Cancel
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+
+</div>
